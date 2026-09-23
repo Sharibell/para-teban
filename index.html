@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi bebe lindo 💙</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #02010b;
+    color: white;
+}
+
+/* =========================
+   UNIVERSO
+========================= */
+
+body {
+    background:
+        radial-gradient(circle at 50% 50%, #171044 0%, #08051c 35%, #02010b 75%);
+}
+
+#stars,
+#effects {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#stars {
+    z-index: 0;
+}
+
+#effects {
+    z-index: 20;
+}
+
+/* Nebulosas */
+
+.nebula {
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .20;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.nebula.one {
+    background: #8b3dff;
+    top: -300px;
+    left: -250px;
+}
+
+.nebula.two {
+    background: #ff3d91;
+    bottom: -350px;
+    right: -250px;
+}
+
+.nebula.three {
+    background: #3d8bff;
+    top: 35%;
+    left: 40%;
+    width: 400px;
+    height: 400px;
+    opacity: .10;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.main {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+#intro {
+    text-align: center;
+    flex-direction: column;
+}
+
+.small-text {
+    font-size: 18px;
+    letter-spacing: 4px;
+    opacity: 0;
+    animation: aparecer 2s forwards;
+    animation-delay: 1s;
+    color: #ffd6ee;
+}
+
+.intro-title {
+    margin-top: 25px;
+    font-size: clamp(45px, 10vw, 100px);
+    color: #fff;
+    text-shadow:
+        0 0 10px #ff9ccc,
+        0 0 25px #ff5ca8,
+        0 0 50px #ff2788;
+    opacity: 0;
+    animation: aparecerZoom 2s forwards;
+    animation-delay: 2s;
+}
+
+.intro-heart {
+    font-size: 70px;
+    margin-top: 25px;
+    opacity: 0;
+    animation:
+        aparecer 2s forwards 3s,
+        latido 1.4s infinite 5s;
+}
+
+.scroll {
+    margin-top: 60px;
+    opacity: 0;
+    animation: aparecer 2s forwards 4s;
+    color: #ffd4ea;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.scroll span {
+    display: block;
+    margin-top: 12px;
+    font-size: 25px;
+    animation: flecha 1.5s infinite;
+}
+
+/* =========================
+   CARTA
+========================= */
+
+.letter-section {
+    align-items: flex-start;
+    padding-top: 100px;
+}
+
+.letter {
+    width: min(850px, 94%);
+    padding: 45px 35px;
+    background: rgba(10, 5, 30, .60);
+    border: 1px solid rgba(255, 180, 220, .25);
+    border-radius: 25px;
+    box-shadow:
+        0 0 30px rgba(255, 70, 160, .12),
+        inset 0 0 40px rgba(130, 60, 255, .08);
+    backdrop-filter: blur(8px);
+}
+
+.letter h2 {
+    text-align: center;
+    font-size: clamp(30px, 7vw, 58px);
+    margin-bottom: 45px;
+    color: #ffd3e9;
+    text-shadow: 0 0 20px #ff4f9d;
+}
+
+.message {
+    font-size: clamp(18px, 3vw, 23px);
+    line-height: 1.9;
+    color: #fff5fb;
+}
+
+.message p {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 1.2s ease;
+}
+
+.message p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.highlight {
+    color: #ff9fca;
+    font-size: 1.2em;
+    text-shadow: 0 0 12px rgba(255, 85, 160, .7);
+}
+
+.center {
+    text-align: center;
+}
+
+
+/* =========================
+   FOTOS DE NOSOTROS
+========================= */
+
+.photos-section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photos-container {
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+}
+
+.photos-container h2 {
+    font-size: clamp(28px, 6vw, 50px);
+    margin-bottom: 45px;
+    color: #bfeaff;
+    text-shadow:
+        0 0 15px #4db8ff,
+        0 0 30px #238cff;
+}
+
+
+/* =========================
+   UNIVERSO DE FOTOS
+========================= */
+
+.photo-universe {
+    position: relative;
+
+    width: min(700px, 95vw);
+    height: 600px;
+
+    margin: auto;
+}
+
+
+/* =========================
+   FOTO PRINCIPAL
+========================= */
+
+.photo-main {
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    border: 4px solid rgba(150, 220, 255, .9);
+
+    box-shadow:
+        0 0 15px rgba(60, 170, 255, .9),
+        0 0 35px rgba(50, 130, 255, .6),
+        0 0 70px rgba(80, 100, 255, .35);
+
+    animation: fotoPrincipal 4s ease-in-out infinite;
+}
+
+
+/* =========================
+   FOTOS PEQUEÑAS
+========================= */
+
+.photo-small {
+    position: absolute;
+
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    z-index: 5;
+
+    border: 3px solid rgba(150, 220, 255, .8);
+
+    box-shadow:
+        0 0 12px rgba(60, 170, 255, .7),
+        0 0 25px rgba(50, 130, 255, .4);
+
+    transition: .5s ease;
+}
+
+
+/* =========================
+   TODAS LAS IMÁGENES
+========================= */
+
+.photo-universe img {
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+}
+
+
+/* =========================
+   POSICIONES
+========================= */
+
+
+/* ARRIBA */
+
+.photo-2 {
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+}
+
+
+/* ARRIBA DERECHA */
+
+.photo-3 {
+    right: 8%;
+    top: 14%;
+}
+
+
+/* DERECHA */
+
+.photo-4 {
+    right: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+/* ABAJO DERECHA */
+
+.photo-5 {
+    right: 10%;
+    bottom: 5%;
+}
+
+
+/* ABAJO */
+
+.photo-6 {
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+}
+
+
+/* ABAJO IZQUIERDA */
+
+.photo-7 {
+    left: 10%;
+    bottom: 5%;
+}
+
+
+/* IZQUIERDA */
+
+.photo-8 {
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+/* ARRIBA IZQUIERDA */
+
+.photo-9 {
+    left: 8%;
+    top: 14%;
+}
+
+
+/* =========================
+   EFECTOS AL PASAR EL MOUSE
+========================= */
+
+.photo-small:hover {
+    z-index: 20;
+    transform: scale(1.15);
+}
+
+.photo-2:hover,
+.photo-6:hover {
+    transform: translateX(-50%) scale(1.15);
+}
+
+.photo-4:hover,
+.photo-8:hover {
+    transform: translateY(-50%) scale(1.15);
+}
+
+.photo-main:hover {
+    transform: translate(-50%, -50%) scale(1.06);
+}
+
+
+/* =========================
+   ANIMACIÓN FOTO CENTRAL
+========================= */
+
+@keyframes fotoPrincipal {
+
+    0%, 100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.04);
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .photo-universe {
+
+        width: 95vw;
+        height: 500px;
+
+    }
+
+    .photo-main {
+
+        width: 175px;
+        height: 175px;
+
+    }
+
+    .photo-small {
+
+        width: 90px;
+        height: 90px;
+
+    }
+
+    .photo-2 {
+        top: 0;
+    }
+
+    .photo-3 {
+        right: 2%;
+        top: 15%;
+    }
+
+    .photo-4 {
+        right: 0;
+    }
+
+    .photo-5 {
+        right: 5%;
+        bottom: 3%;
+    }
+
+    .photo-6 {
+        bottom: 0;
+    }
+
+    .photo-7 {
+        left: 5%;
+        bottom: 3%;
+    }
+
+    .photo-8 {
+        left: 0;
+    }
+
+    .photo-9 {
+        left: 2%;
+        top: 15%;
+    }
+
+}
+
+/* =========================
+   FINAL
+========================= */
+
+#final {
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.final-small {
+    font-size: 20px;
+    color: #ffd9eb;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.final-title {
+    font-size: clamp(55px, 13vw, 130px);
+    color: #fff;
+    text-shadow:
+        0 0 10px #ffb0d4,
+        0 0 25px #ff5da7,
+        0 0 60px #ff167d;
+    animation: latido 1.5s infinite;
+}
+
+.final-message {
+    max-width: 800px;
+    margin-top: 35px;
+    font-size: clamp(20px, 4vw, 30px);
+    line-height: 1.7;
+    color: #ffeaf4;
+}
+
+.final-sign {
+    margin-top: 45px;
+    font-size: clamp(24px, 5vw, 40px);
+    color: #ffb7d8;
+}
+
+/* =========================
+   CORAZONES / FLORES
+========================= */
+
+.floating {
+    position: fixed;
+    z-index: 10;
+    pointer-events: none;
+    user-select: none;
+    animation: flotar linear forwards;
+}
+
+.heart {
+    color: #ff6da9;
+    text-shadow:
+        0 0 8px #ff4b98,
+        0 0 20px #ff287f;
+}
+
+.flower {
+    filter: drop-shadow(0 0 8px rgba(255, 170, 210, .7));
+}
+
+/* =========================
+   CLICK BURST
+========================= */
+
+.burst {
+    position: fixed;
+    z-index: 50;
+    pointer-events: none;
+    font-size: 25px;
+    animation: burst 1.5s ease-out forwards;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+.music-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(30,10,50,.65);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes aparecerZoom {
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.13);
+    }
+}
+
+@keyframes flecha {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: .5;
+    }
+    50% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+}
+
+@keyframes flotar {
+    0% {
+        transform:
+            translateY(110vh)
+            translateX(0)
+            rotate(0deg)
+            scale(.5);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(40px)
+            rotate(180deg)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translateY(-15vh)
+            translateX(-40px)
+            rotate(360deg)
+            scale(.8);
+        opacity: 0;
+    }
+}
+
+@keyframes burst {
+    0% {
+        transform: translate(0,0) scale(.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(var(--x), var(--y))
+            scale(1.2)
+            rotate(30deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 600px) {
+
+    .letter {
+        padding: 35px 22px;
+    }
+
+    .message {
+        line-height: 1.75;
+    }
+
+    .letter h2 {
+        margin-bottom: 30px;
+    }
+
+    .nebula {
+        width: 400px;
+        height: 400px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="nebula one"></div>
+<div class="nebula two"></div>
+<div class="nebula three"></div>
+
+<div id="effects"></div>
+
+<button class="music-button" id="musicButton">♫</button>
+
+<div class="main">
+
+    <!-- =====================
+         INTRO
+    ====================== -->
+
+    <section class="section" id="intro">
+
+        <div class="small-text">
+            PARA ALGUIEN MUY ESPECIAL...
+        </div>
+
+        <div class="intro-title">
+            Esteban Ramon Talavera Pedrozo
+        </div>
+
+        <div class="intro-heart">
+            💙
+        </div>
+
+        <div class="scroll">
+            Tengo algo que quiero decirte...
+            <span>↓</span>
+        </div>
+
+    </section>
+
+
+    <!-- =====================
+         CARTA
+    ====================== -->
+
+    <section class="section letter-section">
+
+        <div class="letter">
+
+            <h2>
+                💙 Para el amor de mi vida 💙
+            </h2>
+
+            <div class="message">
+
+                <p>
+                    Cielo, mi amor, quiero que sepas algo...
+                </p>
+
+                <p>
+                    Quiero que sepas que te amo
+                    <span class="highlight">
+                        con toda mi alma.
+                    </span>
+                </p>
+
+                <p>
+                    Sos el amor de mi vida y una de las cosas
+                    más bonitas que Dios puso en mi camino.
+                    No sé si alguna vez voy a encontrar las
+                    palabras exactas para explicarte todo lo
+                    que siento por vos, porque a veces siento
+                    que decir "tiamo" se queda demasiado
+                    pequeño para todo lo que significás para mí.
+                </p>
+
+                <p>
+                    Estoy profundamente orgullosa de vos.
+                    💙
+                </p>
+
+                <p>
+                    Orgullosa del hombre trabajador que sos,
+                    de todo lo que te esforzás, de tu forma de
+                    seguir adelante y de esa persona tan buena
+                    que llevás dentro a pesar de ser el mejor 
+                    guerrero del señor jajaja.
+                </p>
+
+                <p>
+                    Pero sobre todo...
+                    <span class="highlight">
+                        amo la manera en que me amás.
+                    </span>
+                </p>
+
+                <p>
+                    Amo ese amor incondicional que siempre
+                    me das, la forma tan linda en que me tratás,
+                    cada detalle, cada palabra, cada abrazo
+                    y cada momento en el que me hacés sentir
+                    querida y especial.
+                </p>
+
+                <p>
+                    Gracias por ser vos.
+                    <br>
+                    Gracias por quererme como lo hacés.
+                    <br>
+                    Gracias por estar conmigo.
+                </p>
+
+                <p>
+                    Gracias por hacerme sentir que tengo
+                    a mi lado a la persona con la que quiero
+                    compartir toda mi vida. Siento que 
+                    jamas te voy a poder devolver todo 
+                    el cariño y el amor que me das, porque
+                    es algo que no se puede igualar. Quiero que
+                    en el futuro me veas y digas, "Que Feliz
+                    soy teniendote a mi lado." Quiero lograr
+                    que ese momento llegue, sentir que hice bien
+                    mi papel de Novia, compañera y mejor amiga.
+                    💙
+                </p>
+
+                <p>
+                    Y si Dios lo permite...
+                </p>
+
+                <p class="center">
+                    <span class="highlight">
+                        quiero que seas vos.
+                    </span>
+                </p>
+
+                <p>
+                    Quiero compartir muchos años a tu lado.
+                    Quiero vivir momentos hermosos, superar
+                    juntos los momentos difíciles, cumplir
+                    sueños, reírnos, crecer y construir
+                    nuestra vida juntos, nuestro mundo.
+                </p>
+
+                <p>
+                    Quiero seguir eligiéndote una y otra vez.
+                </p>
+
+                <p>
+                    Porque entre tantas caos en el mundo,
+                    dudas y ansiedades...
+                </p>
+
+                <p class="center">
+                    <span class="highlight">
+                        siempre estas vos, siempre estas
+                        para mi en todo momento.
+                    </span>
+                    💙
+                </p>
+
+                <p>
+                    Cielo, sos mi amor, mi compañero y el
+                    hombre con el que, si la vida me permite,
+                    quiero pasar la eternidad.
+                </p>
+
+                <p>
+                    Te amo con toda mi alma.
+                    <br>
+                    Hoy, mañana y todos los días que Dios
+                    nos permita compartir juntos.
+                    💙
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<!-- =====================
+     FOTOS DE NOSOTROS
+====================== -->
+
+<section class="section photos-section">
+
+    <div class="photos-container">
+
+        <h2>💙 Algunos de nuestros momentos 💙</h2>
+
+        <div class="photo-universe">
+
+    <!-- FOTO PRINCIPAL -->
+    <div class="photo-main">
+        <img src="Fotitos/primera.jpg" alt="Nuestro momento">
+    </div>
+
+    <!-- FOTOS ALREDEDOR -->
+    <div class="photo-small photo-2">
+        <img src="Fotitos/amores.jpg" alt="Nuestro momento">
+    </div>
+
+    <div class="photo-small photo-3">
+        <img src="Fotitos/amors.jpg" alt="Nuestro momento">
+    </div>
+
+    <div class="photo-small photo-4">
+        <img src="Fotitos/cielo.jpg" alt="Nuestro momento">
+    </div>
+
+    <div class="photo-small photo-5">
+        <img src="Fotitos/feliz.jpg" alt="Nuestro momento">
+    </div>
+
+    <div class="photo-small photo-6">
+        <img src="Fotitos/nosotros.jpg" alt="Nuestro momento">
+    </div>
+
+    <div class="photo-small photo-7">
+        <img src="Fotitos/shari.jpg" alt="Nuestro momento">
+    </div>
+
+    <div class="photo-small photo-8">
+        <img src="Fotitos/teamo.jpg" alt="Nuestro momento">
+    </div>
+
+    <div class="photo-small photo-9">
+        <img src="Fotitos/Teban.jpg" alt="Nuestro momento">
+    </div>
+
+</div>
+
+    </div>
+
+</section>
+
+
+    <!-- =====================
+         FINAL
+    ====================== -->
+
+    <section class="section" id="final">
+
+        <div class="final-small">
+            Y después de todo...
+        </div>
+
+        <div class="final-title">
+            💙TE AMO💙
+        </div>
+
+        <div class="final-message">
+            Teban 💙
+            <br><br>
+            Sos todo y sos mas de lo que siempre soñe,
+            queria probar mis dotes de programadora jajaja
+            y dije que lo mejor era hacerte alguito, algo con
+            mi minimo conocimiento y esfuerzo, no es mucho cielo
+            pero es con todo mi cariño.
+        </div>
+
+        <div class="final-sign">
+            💙 Siempre vos y solo vos.💙
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   ESTRELLAS DEL UNIVERSO
+===================================================== */
+
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+let stars = [];
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+for (let i = 0; i < 230; i++) {
+
+    stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.8 + .2,
+        speed: Math.random() * .4 + .1,
+        alpha: Math.random(),
+        twinkle: Math.random() * .03 + .005
+    });
+}
+
+function drawStars() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let star of stars) {
+
+        star.alpha += star.twinkle;
+
+        if (star.alpha >= 1 || star.alpha <= .15) {
+            star.twinkle *= -1;
+        }
+
+        star.y += star.speed;
+
+        if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            "rgba(255,255,255," +
+            Math.max(.15, star.alpha) +
+            ")";
+
+        ctx.fill();
+    }
+
+    requestAnimationFrame(drawStars);
+}
+
+drawStars();
+
+
+/* =====================================================
+   CORAZONES Y FLORES FLOTANDO
+===================================================== */
+
+const effects = document.getElementById("effects");
+
+const symbols = [
+    "💙",
+    "🐻‍❄️",
+    "💙",
+    "🐻‍❄️",
+    "💙",
+    "🐻‍❄️",
+    "🌸",
+    "🌹",
+    "🌷",
+    "🌺",
+    "✨"
+];
+
+function createFloating() {
+
+    const item = document.createElement("div");
+
+    item.classList.add("floating");
+
+    const symbol =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    item.innerHTML = symbol;
+
+    item.style.left =
+        Math.random() * 100 + "vw";
+
+    item.style.fontSize =
+        (Math.random() * 25 + 15) + "px";
+
+    item.style.animationDuration =
+        (Math.random() * 8 + 7) + "s";
+
+    item.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    effects.appendChild(item);
+
+    setTimeout(() => {
+        item.remove();
+    }, 17000);
+}
+
+/* Aparecen constantemente */
+
+setInterval(createFloating, 350);
+
+
+/* =====================================================
+   CORAZONES EXTRA AL FINAL
+===================================================== */
+
+function finalExplosion() {
+
+    for (let i = 0; i < 80; i++) {
+
+        setTimeout(() => {
+
+            const item = document.createElement("div");
+
+            item.className = "floating";
+
+            item.innerHTML =
+                symbols[Math.floor(Math.random() * symbols.length)];
+
+            item.style.left =
+                Math.random() * 100 + "vw";
+
+            item.style.fontSize =
+                (Math.random() * 35 + 15) + "px";
+
+            item.style.animationDuration =
+                (Math.random() * 6 + 5) + "s";
+
+            effects.appendChild(item);
+
+            setTimeout(() => item.remove(), 12000);
+
+        }, i * 100);
+    }
+}
+
+
+/* =====================================================
+   TEXTO QUE APARECE AL HACER SCROLL
+===================================================== */
+
+const paragraphs =
+    document.querySelectorAll(".message p");
+
+const observer =
+    new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+
+        });
+
+    }, {
+        threshold: .15
+    });
+
+paragraphs.forEach(p => observer.observe(p));
+
+
+/* =====================================================
+   EFECTO AL TOCAR / HACER CLICK
+===================================================== */
+
+document.addEventListener("click", function(e) {
+
+    const amount = 12;
+
+    for (let i = 0; i < amount; i++) {
+
+        const burst = document.createElement("div");
+
+        burst.className = "burst";
+
+        burst.innerHTML =
+            ["🐻‍❄️","💙","🐻‍❄️","🌸","✨"][Math.floor(Math.random()*5)];
+
+        burst.style.left = e.clientX + "px";
+        burst.style.top = e.clientY + "px";
+
+        const angle =
+            Math.random() * Math.PI * 2;
+
+        const distance =
+            Math.random() * 120 + 50;
+
+        burst.style.setProperty(
+            "--x",
+            Math.cos(angle) * distance + "px"
+        );
+
+        burst.style.setProperty(
+            "--y",
+            Math.sin(angle) * distance + "px"
+        );
+
+        document.body.appendChild(burst);
+
+        setTimeout(() => {
+            burst.remove();
+        }, 1600);
+    }
+
+});
+
+
+/* =====================================================
+   DETECTAR CUANDO LLEGA AL FINAL
+===================================================== */
+
+const finalSection =
+    document.getElementById("final");
+
+let finalDone = false;
+
+const finalObserver =
+    new IntersectionObserver((entries) => {
+
+        if (entries[0].isIntersecting && !finalDone) {
+
+            finalDone = true;
+
+            finalExplosion();
+
+            setTimeout(() => {
+                finalExplosion();
+            }, 4000);
+
+        }
+
+    }, {
+        threshold: .4
+    });
+
+finalObserver.observe(finalSection);
+
+
+/* =====================================================
+   MÚSICA OPCIONAL
+===================================================== */
+
+/*
+   Si querés poner una canción:
+
+   1. Colocá un archivo llamado:
+      "musica.mp3"
+
+      en la misma carpeta que este HTML.
+
+   2. Descomentá las líneas de abajo.
+
+   3. La música se controla con el botón ♫.
+*/
+
+let music = null;
+let musicPlaying = false;
+
+document.getElementById("musicButton")
+.addEventListener("click", function() {
+
+    if (!music) {
+
+        music = new Audio("musica.mp3");
+        music.loop = true;
+        music.volume = 0.35;
+
+    }
+
+    if (musicPlaying) {
+
+        music.pause();
+        musicPlaying = false;
+
+        this.innerHTML = "♫";
+
+    } else {
+
+        music.play()
+        .then(() => {
+
+            musicPlaying = true;
+            this.innerHTML = "🔊";
+
+        })
+        .catch(() => {
+
+            alert(
+                "Colocá un archivo llamado 'musica.mp3' junto al HTML."
+            );
+
+        });
+
+    }
+
+});
+
+
+/* =====================================================
+   TÍTULO DE LA PESTAÑA
+===================================================== */
+
+let titles = [
+    "💙 Para Teban...",
+    "🐻‍❄️ Mi amor, Mi Vida...",
+    "💙 Te amo...",
+    "🌌 Mi universo...",
+    "💙 Siempre vas a ser vos..."
+];
+
+let titleIndex = 0;
+
+setInterval(() => {
+
+    titleIndex++;
+
+    if (titleIndex >= titles.length) {
+        titleIndex = 0;
+    }
+
+    document.title = titles[titleIndex];
+
+}, 2500);
+
+</script>
+
+</body>
+</html>
